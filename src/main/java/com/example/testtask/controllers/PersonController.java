@@ -40,10 +40,21 @@ public class PersonController {
     @Autowired
     private CountryService countryService;
 
-    @GetMapping("/person")
+  /*  @GetMapping("/person")
     public  String allPersonList( Model model){
         List<Persons> personsAll = personRepository.findByAll();
         model.addAttribute("allpersons", personsAll);
+        return "persons/persons";
+    }
+*/
+    @RequestMapping(path = {"/person","/search"})
+    public String home(Persons persons, Model model,  String lastname) {
+        if(lastname!=null) {
+            List<Persons> personsAll = personRepository.findByLastName(lastname);
+            model.addAttribute("allpersons", personsAll);
+        }else {
+            List<Persons> personsAll = personRepository.findByAll();
+            model.addAttribute("allpersons", personsAll);}
         return "persons/persons";
     }
 

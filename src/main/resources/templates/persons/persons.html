@@ -34,9 +34,15 @@
                 <div class="card-header">
                     <h4 class="text-center">Сотрудники</h4>
                 </div>
-
             <div class="card-body" >
             <div class="table-responsive">
+                <div align="right">
+                <form th:action="@{/search}" method="get">
+                    <input type="text" name="lastname" th:value="${lastname}"  placeholder="Введите фамилию для поиска" size="50" >
+                    <button type="submit" class="btn btn-info" >Поиск</button>
+                    <button type="submit" class="btn btn-info" >Сбросить</button>
+                </form>
+                </div>
                 <a  class="btn btn-info" th:href="@{/person/add}">Добавить</a>
                 <br><br>
                 <table class="table table-hover">

@@ -23,6 +23,9 @@ public interface PersonRepository extends JpaRepository<Persons, Long> {
     @Query("select p.city.country.id from Persons p where p.id= :id")
     int findByPersonAllCity(@Param("id") long id);
 
+    @Query("from Persons p where p.lastName like %:lastname% order by p.firstName" )
+    List<Persons> findByLastName(@Param("lastname") String lastname);
+
 }
 
 
