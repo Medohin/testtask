@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
+// Репозиторий для городов
 public interface CityRepository extends JpaRepository<City, Long> {
 
     @Query("SELECT c.id, c.cityName from City c order by c.id")

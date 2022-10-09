@@ -3,8 +3,9 @@ package com.example.testtask.models;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
 
+
+//Модель таблицы стран
 @Data
 @Entity
 @Table(name = "country", schema="public")

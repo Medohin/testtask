@@ -21,7 +21,7 @@ import javax.persistence.EntityManager;
 import javax.validation.Valid;
 import java.util.List;
 
-
+//Контроллер для сотрудников
 @Controller
 public class PersonController {
 

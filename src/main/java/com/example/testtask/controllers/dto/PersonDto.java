@@ -1,8 +1,8 @@
 package com.example.testtask.controllers.dto;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 
+//Data Transfer Object для работы с данными сотрудников
 public class PersonDto {
     @NotEmpty
     private String firstName;

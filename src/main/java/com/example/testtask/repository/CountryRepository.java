@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-
+// Репозиторий для стран
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
     @Query("from Country c")

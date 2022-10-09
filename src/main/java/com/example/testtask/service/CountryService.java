@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//Сервис для привязки стран и городов
 @Service
 public class CountryService {
 	
