@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+
+    <title>Сотрудкники</title>
+
+    <style type="text/css">/* Chart.js */
+    @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+    </style>
+</head>
+
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container-fluid">
+    <div class="row">
+        <menu th:insert="blocks/menu :: menu"></menu>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                    </div>
+                </div>
+                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Сотрудники</h4>
+                </div>
+
+            <div class="card-body" >
+            <div class="table-responsive">
+                <a  class="btn btn-info" th:href="@{/person/add}">Добавить</a>
+                <br><br>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Отчество</th>
+                        <th scope="col">Телефон</th>
+                        <th scope="col">Эл.почта</th>
+                        <th scope="col">Старана</th>
+                        <th scope="col">Город</th>
+                        <th scope="col"  align="center" >-- Действие --</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                     <tr th:each="per,num : ${allpersons}">
+                        <th scope="row" th:text="${num.count}"></th>
+                        <td th:text="${per.lastName}"></td>
+                        <td th:text="${per.firstName}"></td>
+                        <td th:text="${per.patronymic}"></td>
+                        <td th:text="${per.phone}" ></td>
+                         <td th:text="${per.email}" ></td>
+                         <td th:text="${per.city.country.countryName}" ></td>
+                         <td th:text="${per.city.cityName}" ></td>
+                        <td align="left" >
+                            <div >
+                             <a  class="btn btn-success" th:href="'person/' + ${per.id}">Редактировать </a>
+
+                            <button type="button" class="btn btn-danger" data-toggle="modal" th:attr="data-target='#ModalCenter'+${per.id}">
+                                Удалить
+                            </button>
+                            <div class="modal fade"  th:attr="id='ModalCenter'+${per.id}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title"  id="ModalLongTitle"> Внимание! </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Вы дествительно хотите удалить сотрудника
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                            <a th:href="'person/delete/' + ${per.id}" class="btn btn-danger">Удалить</a>
+                                        </div>
+                                      </div>
+                                     </div>
+                                 </div>
+                                </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+        </main>
+        <!-- end main -->
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script>
+    $('#ModalCenter').on('shown.bs.modal', function () {
+        $('#exampleModalCenter').trigger('focus')
+    })
+</script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</body>
+</html>
