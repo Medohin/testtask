@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+//Модель таблицы городов
 @Data
 @Entity
 @Table(name = "city", schema="public")

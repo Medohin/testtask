@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+//Модель таблицы сотрудников
 @Data
 @Entity
 @Table(name = "persons", schema="public")

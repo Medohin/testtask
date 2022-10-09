@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.List;
-
+// Репозиторий для сотрудников
 @Transactional
 @Repository
 public interface PersonRepository extends JpaRepository<Persons, Long> {
