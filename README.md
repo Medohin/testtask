@@ -85,11 +85,6 @@ VALUES
 ) 
 WITH (oids = false);
   </div>
-  
-  <h4> application.properties </h4>
-<p>  ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)</p>
-<p> spring.datasource.url=jdbc:postgresql://localhost/test</p>
-<p> spring.datasource.username=kanban</p>
-<p> spring.datasource.password=kanban</p>
-<p> spring.liquibase.change-log=classpath:/db/changelog/db.changelog-master.xml</p>
-<p> spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=false</p>
+  <h2> При содания проекта Backend используется Spring Boot, а интерфеса вывда (Frontend) реализован на Thymeleaf </h2>
+  <h4>[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")  </h4>
+
