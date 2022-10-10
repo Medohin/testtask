@@ -86,9 +86,7 @@ VALUES
 WITH (oids = false);
   </div>
   <h2> При содания проекта Backend используется Spring Boot, а интерфеса вывда (Frontend) реализован на Thymeleaf </h2>
-  <h4><iframe width="560" height="315"
-src="https://www.youtube.com/embed/MUQfKFzIOeU" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe></h4>
+  <h4><a href="http://www.youtube.com/watch?feature=player_embedded&v=nTQUwghvy5Q" target="_blank">
+ <img src="http://img.youtube.com/vi/nTQUwghvy5Q/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" />
+</a></h4>
 
